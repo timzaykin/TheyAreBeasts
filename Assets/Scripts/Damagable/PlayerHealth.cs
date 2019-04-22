@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TAB { 
+namespace TAB {
     public class PlayerHealth : Damagable {
         [SerializeField]
         private int armour; //Текущий показатель брони
+        public int Armour{ get { return armour; }}
         public int maxArmour; // Максимальный показатель брони
+
+        public override void Start()
+        {
+            base.Start();
+            UIManager.Instance.UpdateHp();
+        }
 
         public override void DestroyByHit()
         {
@@ -36,6 +43,7 @@ namespace TAB {
             {
                 DestroyByHit();
             }
+            UIManager.Instance.UpdateHp();
         }
 
         //Получение брони

@@ -71,6 +71,7 @@ namespace TAB {
                 ChangeWeapon(1);
             }
 
+            UIManager.Instance.UpdateWeaponImage();
         }
     }
 }

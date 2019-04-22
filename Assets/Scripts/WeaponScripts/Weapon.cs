@@ -10,11 +10,11 @@ namespace TAB
         public GameObject bullitPref;
         [SerializeField]
         private int _ammo; //текущее количество патронов
-        private int Ammo { get { return _ammo; }}
+        public int Ammo { get { return _ammo; }}
         public int maxAmmo; //Максимальное количество патронов в обойме
         [SerializeField]
         private int _allAmmo; // Количество патронов в запасе
-        private int AllAmmo { get { return _allAmmo; } }
+        public int AllAmmo { get { return _allAmmo; } }
         public int maxAllAmmo; // Максимальное количество патронов в запасе
         public bool infinityAmmo; //Бесконечные патроны
         public int damage; //Наносимый урон
@@ -23,7 +23,12 @@ namespace TAB
         public float maxDistance; //максимальная дальность стрельбы
         public float scatter; //показатель разброса стрельбы от 0 до 0,3
         public float bullitSpeed; // скорость анимации пули
+
+
+
         public WeaponManger.WeaponAnimation WeaponAnimation;//Анимация текущего оружия
+
+        public Sprite UiImg;
 
         private bool reloading; // Флаг перезорядки оружия
         private bool shootDelay; //Флаг задержки выстрела
@@ -50,6 +55,10 @@ namespace TAB
             }
 
 
+            if (Input.GetKeyDown(KeyCode.R)&&!reloading) {
+                StartCoroutine(Reload());
+            }
+
         }
 
 
@@ -57,6 +66,7 @@ namespace TAB
         protected virtual void Shoot()
         {
             _ammo--;
+            UIManager.Instance.UpdateAmmo();
             StartCoroutine(MuzzleFlashCorotine());
             RaycastHit hit;
             var shootVector = new Vector3(Random.Range(scatter * -1, scatter), 0, 1);
@@ -91,15 +101,17 @@ namespace TAB
         IEnumerator Reload()
         {
             reloading = true;
+            shootDelay = true;
             yield return new WaitForSeconds(reloadDelay);
             if (!infinityAmmo)
             {
                 if (_allAmmo > 0)
                 {
-                    if (_allAmmo > maxAmmo)
+                    int residue = maxAmmo - _ammo;
+                    if (_allAmmo > residue)
                     {
                         _ammo = maxAmmo;
-                        _allAmmo -= maxAmmo;
+                        _allAmmo -= residue;
                     }
                     else
                     {
@@ -112,7 +124,10 @@ namespace TAB
             {
                 _ammo = maxAmmo;
             }
+            UIManager.Instance.UpdateAmmo();
+
             reloading = false;
+            shootDelay = false;
         }
 
         //Куротина задержки выстрелов
@@ -121,7 +136,9 @@ namespace TAB
             shootDelay = true;
             Shoot();
             yield return new WaitForSeconds(firerateDelay);
-            shootDelay = false;
+            if (!reloading) {
+                shootDelay = false;
+            }
         }
 
         public void AddAmmo(int ammo) {
