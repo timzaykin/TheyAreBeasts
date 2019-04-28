@@ -141,8 +141,17 @@ namespace TAB
             }
         }
 
-        public void AddAmmo(int ammo) {
-            _allAmmo += ammo;
+        public void AddAmmo() {
+            if (maxAllAmmo > (_allAmmo + maxAmmo * 3)) _allAmmo += maxAmmo * 3;
+            else _allAmmo = maxAllAmmo;
+            
+            UIManager.Instance.UpdateAmmo();
+        }
+
+        public void ResetAmmo()
+        {
+            _ammo = maxAmmo;
+            _allAmmo = maxAmmo * 3;
         }
     }
 }

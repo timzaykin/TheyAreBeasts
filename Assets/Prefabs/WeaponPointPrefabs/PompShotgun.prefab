@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715b8425f102516458dc13d672a49610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rareValue: 10
   isPistol: 0
 --- !u!1 &2343203649511089372
 GameObject:
@@ -172,6 +173,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 952117215644257571, guid: d2d9a211d7934b4469f0ac60759e1807,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98c5e226da72a2b499f8d8657ba59a94, type: 2}
+    - target: {fileID: 952117215644257571, guid: d2d9a211d7934b4469f0ac60759e1807,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0fae664b310b3c143a198f002a48eee9, type: 2}
+    - target: {fileID: 952117215644257571, guid: d2d9a211d7934b4469f0ac60759e1807,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a0326ede9eba40449981e2a895a281e, type: 2}
     m_RemovedComponents:
     - {fileID: 162821390, guid: d2d9a211d7934b4469f0ac60759e1807, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2d9a211d7934b4469f0ac60759e1807, type: 3}

@@ -17,6 +17,8 @@ namespace TAB {
         private CharacterController charConroller;
         private Animator animController;
 
+        public LayerMask mask;
+
         void Start()
         {
             charConroller = GetComponent<CharacterController>();
@@ -59,7 +61,7 @@ namespace TAB {
 //#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out hit, 100, mask))
             {
                 var heading = hit.point - transform.position;
                 var distance = heading.magnitude;

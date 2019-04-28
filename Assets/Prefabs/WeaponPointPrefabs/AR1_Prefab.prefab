@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,7 +247,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -324,7 +324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -401,7 +401,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -478,7 +478,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -508,7 +508,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5314990996508070917}
   - component: {fileID: 5276957285751201531}
-  - component: {fileID: 5225275634062247285}
   - component: {fileID: 2955607798466827742}
   m_Layer: 0
   m_Name: AR1_Prefab
@@ -545,25 +544,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &5225275634062247285
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5320849693383347265}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2955607798466827742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,4 +556,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715b8425f102516458dc13d672a49610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rareValue: 5
   isPistol: 0

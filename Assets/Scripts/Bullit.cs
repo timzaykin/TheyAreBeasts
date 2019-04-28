@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullit : MonoBehaviour {
     public float bullitSpeed; //Скорость полета пули
     public GameObject impactPrefab; // Префаб эффекта попадания пули 
+    public GameObject impactBlood;// Префаб эффекта попадания пули во врага
     private Vector3 previousPosition; // Позиция в предидущем вызове FixedUpdate
     public LayerMask mask; // Маска слоя
 
@@ -46,11 +47,23 @@ public class Bullit : MonoBehaviour {
                 Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
                 Vector3 pos = hit.point;
                 Destroy(gameObject);
-                Instantiate(impactPrefab, pos, rot);
+                InstantiateImpact(hit.collider, pos, rot);
             }
         }
     }
 
+    private void InstantiateImpact(Collider colider, Vector3 pos, Quaternion rot) {
+        Debug.Log(colider.material.name);   
+        if (colider.material.name == "")
+        {
+            Instantiate(impactPrefab, pos, rot);
+        }
+        else if (colider.material.name == "Meat (Instance)") {
+            Instantiate(impactBlood, pos, rot);
+        }
+
+
+    }
 
     ////Функция на будущее
     //void OnCollisionEnter(Collision collision)

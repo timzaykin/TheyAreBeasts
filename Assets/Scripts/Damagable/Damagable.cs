@@ -46,7 +46,7 @@ public class Damagable : MonoBehaviour, IDamagable {
     }
 
     //Лечение
-    public void TakeHeal(int Heal)
+    public virtual void TakeHeal(int Heal)
     {
         if ((_hp + Heal) > maxHp) {
             _hp = maxHp;

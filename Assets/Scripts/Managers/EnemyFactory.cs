@@ -61,7 +61,7 @@ namespace TAB
         //Выбираем какого врага надо сгенерировать в этой итеррации
         private GameObject GetEnemy()
         {
-            return HordeEnemys[UnityEngine.Random.Range(0,HordeEnemys.Length-1)];
+            return HordeEnemys[UnityEngine.Random.Range(0,HordeEnemys.Length)];
             //if (enemyCount % 20 == 0) {
 
             //}
@@ -69,7 +69,7 @@ namespace TAB
         //Функция генерирования врагов, в дальшейшем враги будут не создаваться а перетаскиваться из пула
         public void SpawnEnemy(GameObject enemyPrefab)
         {
-            Vector3 point = GetSpawnPoint();
+            Vector3 point = GetSpawnPoint(38.0f);
             GameObject Enemy = Instantiate(enemyPrefab, point, Quaternion.identity) as GameObject;
             enemyCount++;
             enemyOnScene++;
@@ -79,11 +79,11 @@ namespace TAB
 
 
         //Получаем точку на нав меше, для спавна врага
-        public Vector3 GetSpawnPoint()
+        public Vector3 GetSpawnPoint( float range)
         {
-            Vector3 rapnomPosition = new Vector3(UnityEngine.Random.Range(-38f, 38f), 0, UnityEngine.Random.Range(-38f, 38f));
+            Vector3 rapnomPosition = new Vector3(UnityEngine.Random.Range(-1*range, range), 0, UnityEngine.Random.Range(-1 * range, range));
             Vector3 point;
-            if (RandomPoint(rapnomPosition, 3f, out point))
+            while (!RandomPoint(rapnomPosition, 3f, out point))
             {
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
             }

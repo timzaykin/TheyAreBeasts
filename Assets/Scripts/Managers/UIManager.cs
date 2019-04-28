@@ -22,7 +22,7 @@ namespace TAB {
         WeaponManger wm;
         PlayerHealth player;
 
-        private void Start()
+        private void Awake()
         {
             wm = WeaponManger.Instance;
             player = wm.gameObject.GetComponent<PlayerHealth>();
@@ -43,13 +43,9 @@ namespace TAB {
         }
 
         public void UpdateAmmo() {
-
-            if (wm.CurrentWeapon == wm.invenntoryWeapon[0])
-            {
-                SecondaryAmmo.text = string.Format("{0}/{1}", wm.CurrentWeapon.GetComponent<Weapon>().Ammo, wm.CurrentWeapon.GetComponent<Weapon>().AllAmmo);
-            }
-            else if (wm.CurrentWeapon == wm.invenntoryWeapon[1]) {
-                PrimaryAmmo.text = string.Format("{0}/{1}", wm.CurrentWeapon.GetComponent<Weapon>().Ammo, wm.CurrentWeapon.GetComponent<Weapon>().AllAmmo);
+            SecondaryAmmo.text = string.Format("{0}/{1}", wm.invenntoryWeapon[0].GetComponent<Weapon>().Ammo, wm.invenntoryWeapon[0].GetComponent<Weapon>().AllAmmo);
+            if (wm.invenntoryWeapon[1] != null) { 
+            PrimaryAmmo.text = string.Format("{0}/{1}", wm.invenntoryWeapon[1].GetComponent<Weapon>().Ammo, wm.invenntoryWeapon[1].GetComponent<Weapon>().AllAmmo);
             }
         }
 

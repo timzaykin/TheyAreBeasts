@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 157501436268398308}
   - component: {fileID: 168618059180212558}
   - component: {fileID: 176234737409598540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,8 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,7 +89,7 @@ GameObject:
   - component: {fileID: 157174855684641032}
   - component: {fileID: 168696157479311224}
   - component: {fileID: 176676108843092200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +136,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,7 +167,7 @@ GameObject:
   - component: {fileID: 157637957819568904}
   - component: {fileID: 168183879960568920}
   - component: {fileID: 176621881345008882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +214,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -242,7 +245,7 @@ GameObject:
   - component: {fileID: 157402580746598254}
   - component: {fileID: 168376242293720072}
   - component: {fileID: 177046967516392376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,6 +292,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -319,7 +323,7 @@ GameObject:
   - component: {fileID: 157817421368654206}
   - component: {fileID: 169095246628652664}
   - component: {fileID: 176234522392562074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Charger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,6 +370,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,7 +402,7 @@ GameObject:
   - component: {fileID: 248250209044982070}
   - component: {fileID: 200567018707379662}
   - component: {fileID: 154954537398752521}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SMG1_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,6 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715b8425f102516458dc13d672a49610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rareValue: 10
+  ItemRoll: 0
   isPistol: 0
 --- !u!1 &155106324133252202
 GameObject:
@@ -475,7 +482,7 @@ GameObject:
   - component: {fileID: 157787588837315466}
   - component: {fileID: 169100064846540448}
   - component: {fileID: 176298623784215596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,6 +529,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 67f7522726f99d645bacdae4777973a1, type: 2}
+  - {fileID: 2100000, guid: 3288e2b5e7dd1ec4795e29e2ea1c5459, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,7 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1402535544890132663}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

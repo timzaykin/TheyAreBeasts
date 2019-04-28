@@ -46,6 +46,12 @@ namespace TAB {
             UIManager.Instance.UpdateHp();
         }
 
+        public override void TakeHeal(int Heal)
+        {
+            base.TakeHeal(Heal);
+            UIManager.Instance.UpdateHp();
+        }
+
         //Получение брони
         public void TakeArmour(int AddedArmour)
         {
@@ -57,6 +63,7 @@ namespace TAB {
             {
                 armour += AddedArmour;
             }
+            UIManager.Instance.UpdateHp();
         }
     }
 }

@@ -59,7 +59,10 @@ namespace TAB {
         }
 
         public void GetUpWeapon(string weaponName, bool isPistol) {
-            Debug.Log(Weapons[weaponName].name);
+            if (invenntoryWeapon[1] != null && invenntoryWeapon[1].name == weaponName) {
+                invenntoryWeapon[1].GetComponent<Weapon>().AddAmmo();
+                return;
+            }
             if (isPistol)
             {
                 invenntoryWeapon[0] = Weapons[weaponName];
@@ -67,6 +70,7 @@ namespace TAB {
             }
             else
             {
+                Weapons[weaponName].GetComponent<Weapon>().ResetAmmo();
                 invenntoryWeapon[1] = Weapons[weaponName];
                 ChangeWeapon(1);
             }
