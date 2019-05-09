@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diePref: {fileID: 8915750318239908337, guid: aff5e65197e2943469a324706a31f680, type: 3}
-  maxHp: 15
+  maxHp: 8
   _hp: 0
   hitAnimCount: 2
   score: 10
@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  defaultSpeed: 1.5
+  defaultSpeed: 1
   combatRange: 1.5
-  atatckDelay: 5
+  atatckDelay: 2
   AttackAnimCount: 6
   WalkAnimCount: 3
   Target: {fileID: 0}
@@ -115,6 +115,9 @@ MonoBehaviour:
   attack: 1
   combat: 0
   stopped: 0
+  isFlanking: 1
+  Runner: 1
+  runModifier: 6
 --- !u!195 &4258177149663238873
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -128,10 +131,10 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 8000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1.8
   m_BaseOffset: 0

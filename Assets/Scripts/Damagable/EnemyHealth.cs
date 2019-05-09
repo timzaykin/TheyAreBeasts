@@ -7,7 +7,7 @@ namespace TAB {
 
         Animator anim; //Аниматор контроллер
         public int hitAnimCount; //Количество анимаций с попаданием
-
+        private bool isDead = false;
         public int score = 10;
         public override void Start()
         {
@@ -31,7 +31,8 @@ namespace TAB {
 
         public override void DestroyByHit(Vector3 hitDirection)
         {
-            StartCoroutine(DieCouratine(hitDirection));
+            if(!isDead) StartCoroutine(DieCouratine(hitDirection));
+
 
             GameManager.Instance.score += score;
             UIManager.Instance.UpdateScore();
@@ -39,8 +40,9 @@ namespace TAB {
         }
 
         IEnumerator DieCouratine(Vector3 hitDirection) {
+            isDead = true;
             yield return new WaitForSeconds(0.2f);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             GameObject ragdoll = Instantiate(diePref, transform.position, transform.rotation) as GameObject;
             ragdoll.GetComponentInChildren<Rigidbody>().AddForce(hitDirection * 100.0f, ForceMode.Impulse);
             EnemyFactory.Instance.enemyOnScene--;

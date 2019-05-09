@@ -13,7 +13,7 @@ namespace TAB
         public float spawnDelay; //Задержка спавна 
         public float minSpawnDelay; //Минимальная задержка
         public GameObject[] HordeEnemys; // Префабы врагов
-
+        public GameObject[] EliteEnemys; // Префабы крутых врагов
         private void OnEnable()
         {
             GameManager.Instance.onStart += StartSpawner; //Подписываемся на событие старта игры
@@ -61,10 +61,13 @@ namespace TAB
         //Выбираем какого врага надо сгенерировать в этой итеррации
         private GameObject GetEnemy()
         {
+            if (enemyCount != 0 && enemyCount % 20 == 0)
+            {
+                return EliteEnemys[UnityEngine.Random.Range(0, EliteEnemys.Length)];
+            }
+            else { 
             return HordeEnemys[UnityEngine.Random.Range(0,HordeEnemys.Length)];
-            //if (enemyCount % 20 == 0) {
-
-            //}
+            }
         }
         //Функция генерирования врагов, в дальшейшем враги будут не создаваться а перетаскиваться из пула
         public void SpawnEnemy(GameObject enemyPrefab)

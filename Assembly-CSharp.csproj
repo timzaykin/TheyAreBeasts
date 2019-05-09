@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Managers\EnemyFactory.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ItemsSpawner.cs" />
+    <Compile Include="Assets\Scripts\Managers\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\MobileController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />

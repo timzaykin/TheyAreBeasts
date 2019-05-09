@@ -53,7 +53,6 @@ public class Bullit : MonoBehaviour {
     }
 
     private void InstantiateImpact(Collider colider, Vector3 pos, Quaternion rot) {
-        Debug.Log(colider.material.name);   
         if (colider.material.name == "")
         {
             Instantiate(impactPrefab, pos, rot);

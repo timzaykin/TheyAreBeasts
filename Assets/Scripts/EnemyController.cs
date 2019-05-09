@@ -26,10 +26,18 @@ namespace TAB {
         [SerializeField]
         private bool combat = false; // флаг боя 
         public bool stopped = false; // флаг остановки
-
-
+        public bool isFlanking;
+        public bool Runner = false;
+        public float runModifier = 6f;
+        private State currentState = State.persecution;
         Animator anim; //ссылкка на Аниматор
         NavMeshAgent nav; // ссылка на NavMeshAgent
+        
+
+        public enum State {
+            persecution,
+            flanking
+        }
 
         void Awake()
         {
@@ -43,23 +51,70 @@ namespace TAB {
             //Получаем цель, задаем рандомную скорость и анимацию
             Target = GameObject.FindGameObjectWithTag("CurrentPlayer");
             walkAnimNumber = Random.Range(1, WalkAnimCount + 1);
-            if (walkAnimNumber == WalkAnimCount)
+            if (walkAnimNumber == WalkAnimCount&&Runner)
             {
-                speed = defaultSpeed * 6;
+                speed = defaultSpeed * runModifier;
             }
             else
             {
                 speed = defaultSpeed;
             }
             nav.Warp(transform.position);
+
+            if (isFlanking) { 
+            StartCoroutine(CheckState());
+            }
         }
 
 
 
         void Update()
         {
+
+            if (currentState == State.persecution || Target == null)
+            {
+                PersecutionState();
+            }
+            Animation();
+
+
+        }
+
+        IEnumerator CheckState() {
+            while (true)
+            {
+                yield return new WaitForSeconds(3f);
+                if (Target == null || stopped) break;
+                float dist = Vector3.Distance(transform.position, Target.transform.position);
+                if (dist > 20.0f)
+                {
+                    currentState = (State)Random.Range(0, 2);
+                    Debug.Log(currentState.ToString());
+                }
+                else {
+                    currentState = State.persecution;
+                }
+
+                if (currentState == State.flanking)
+                {
+                    Vector3 targetDir = Target.transform.position - transform.position;
+                    float angle = Vector3.Angle(targetDir, Vector3.forward);
+                    float RandomAngle = Random.Range(-70f, 70f);
+                    Vector3 pos = transform.position + new Vector3(-1 * Mathf.Sin(angle+ RandomAngle), 0, Mathf.Cos(angle+ RandomAngle)) * 10f;
+                    
+                    GoToPosition(pos, speed);
+                }
+                else if (currentState == State.persecution)
+                {
+                    GoToPosition(Target.transform.position, speed);
+                }
+
+            }
+        }
+
+        public void PersecutionState() {
             //если нет цели то ищем цель, или идем к цели
-            if (Target != null&& !stopped)
+            if (Target != null && !stopped)
             {
                 GoToPosition(Target.transform.position, speed);
             }
@@ -107,11 +162,8 @@ namespace TAB {
                     SetTarget();
                 }
             }
-
-            Animation();
-
-
         }
+
         //Куротина выполнения атаки
         IEnumerator Attack()
         {

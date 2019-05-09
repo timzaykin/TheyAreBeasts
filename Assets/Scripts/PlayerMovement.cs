@@ -66,7 +66,7 @@ namespace TAB {
                 var heading = hit.point - transform.position;
                 var distance = heading.magnitude;
                 var direction = heading / distance;
-                return new Vector3(direction.x, 0, direction.z);
+                return Vector3.Normalize(new Vector3(direction.x, 0, direction.z));
             }
             else
             {
